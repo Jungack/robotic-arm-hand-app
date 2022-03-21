@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hand">
+
+    <fragment
+        android:id="@+id/hand"
+        android:name="com.example.roboticarmhandapp.Hand"
+        android:label="fragment_hand"
+        tools:layout="@layout/fragment_hand" />
+
+    <fragment
+        android:id="@+id/arm"
+        android:name="com.example.roboticarmhandapp.Arm"
+        android:label="fragment_arm"
+        tools:layout="@layout/fragment_arm" />
+</navigation>

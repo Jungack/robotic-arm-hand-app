@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Robotic Arm &amp; Hand App</string>
+    <string name="title_hand">Main</string>
+    <string name="title_arm">Bras</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
