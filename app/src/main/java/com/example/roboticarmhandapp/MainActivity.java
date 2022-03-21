@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Pass the ID's of Different destinations
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.hand, R.id.arm)
+                R.id.home, R.id.hand, R.id.arm)
                 .build();
 
         //Initialize NavController.
