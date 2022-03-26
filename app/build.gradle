@@ -38,4 +38,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.4.1'
     implementation 'androidx.navigation:navigation-ui:2.4.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'me.aflak.libraries:arduino:1.4.5'
 }
