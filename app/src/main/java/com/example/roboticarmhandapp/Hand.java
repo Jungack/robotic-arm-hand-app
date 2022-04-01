@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class Hand extends Fragment implements ArduinoListener {
 
     SeekBar HandSeekBar;
     TextView HandAngleIndicator;
+    Button openHandButton,closeHandButton;
     private Arduino arduino;
     byte seeked;
     byte[] sendSeeked = new byte[1];
@@ -38,6 +40,8 @@ public class Hand extends Fragment implements ArduinoListener {
         // Declaration des views
         HandSeekBar = v.findViewById(R.id.HandSeekBar);
         HandAngleIndicator = v.findViewById(R.id.HandAngleIndicator);
+        openHandButton = v.findViewById(R.id.openHandButton);
+        closeHandButton = v.findViewById(R.id.closeHandButton);
         arduino = new Arduino(getActivity());
         arduino.addVendorId(2341);
 
@@ -55,6 +59,7 @@ public class Hand extends Fragment implements ArduinoListener {
                 seeked = (byte) adjust; // byte prend des valeurs entre -128 et 127
                 sendSeeked[0] = seeked;
                 HandAngleIndicator.setText("Angle du moteur : " + newi);
+                arduino.send(sendSeeked);
             }
 
             @Override
@@ -64,6 +69,28 @@ public class Hand extends Fragment implements ArduinoListener {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        openHandButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HandSeekBar.setProgress(180);
+                seeked = (byte) 90; // byte prend des valeurs entre -128 et 127
+                sendSeeked[0] = seeked;
+                HandAngleIndicator.setText("Angle du moteur : " + 180);
+                arduino.send(sendSeeked);
+            }
+        });
+
+        closeHandButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HandSeekBar.setProgress(0);
+                seeked = (byte) 0; // byte prend des valeurs entre -128 et 127
+                sendSeeked[0] = seeked;
+                HandAngleIndicator.setText("Angle du moteur : " + 0);
                 arduino.send(sendSeeked);
             }
         });
