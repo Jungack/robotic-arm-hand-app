@@ -76,10 +76,10 @@ public class Hand extends Fragment implements ArduinoListener {
         openHandButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HandSeekBar.setProgress(180);
-                seeked = (byte) 90; // byte prend des valeurs entre -128 et 127
+                HandSeekBar.setProgress(0);
+                seeked = (byte) 0; // byte prend des valeurs entre -128 et 127
                 sendSeeked[0] = seeked;
-                HandAngleIndicator.setText("Angle du moteur : " + 180);
+                HandAngleIndicator.setText("Angle du moteur : " + 0);
                 arduino.send(sendSeeked);
             }
         });
@@ -87,10 +87,10 @@ public class Hand extends Fragment implements ArduinoListener {
         closeHandButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HandSeekBar.setProgress(0);
-                seeked = (byte) 0; // byte prend des valeurs entre -128 et 127
+                HandSeekBar.setProgress(180);
+                seeked = (byte) 90; // byte prend des valeurs entre -128 et 127
                 sendSeeked[0] = seeked;
-                HandAngleIndicator.setText("Angle du moteur : " + 0);
+                HandAngleIndicator.setText("Angle du moteur : " + 180);
                 arduino.send(sendSeeked);
             }
         });
